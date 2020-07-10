@@ -3,7 +3,8 @@ using System.Collections.Generic;
 namespace RomanConverter
 {
 	public class RomanConversion
-	{
+	{	
+
 		private static Dictionary<char, int> romanNumerals = new Dictionary<char, int>() {
 			{'I', 1},
 			{'V', 5},
@@ -14,7 +15,13 @@ namespace RomanConverter
 			{'M', 1000},
 		};
 
-
+		/// <summary>
+		/// ToArab takes a roman value string
+		/// The number has to be between 1 and 3999
+		/// If an error occurs or the number is invalid returns a value of 0
+		/// </summary>
+		/// <param name="romanValue"></param>
+		/// <returns></returns>
 		public static int ToArab(string romanValue)
 		{
 			int arabSum = 0;
@@ -53,6 +60,13 @@ namespace RomanConverter
 
 			return arabSum;
 		}
+		/// <summary>
+		/// ToRoman parses an arabic number into roman string
+		/// The number should be between 1 and 3999
+		/// If an error occurs or the number is invalid returns a value of 0
+		/// </summary>
+		/// <param name="arabicValue"></param>
+		/// <returns></returns>
 		public static string ToRoman(int arabicValue)
 		{
 			if (arabicValue < 1 || arabicValue > 3999)
