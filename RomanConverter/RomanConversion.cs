@@ -21,7 +21,7 @@ namespace RomanConverter
 		/// If an error occurs or the number is invalid returns a value of 0
 		/// </summary>
 		/// <param name="romanValue"></param>
-		/// <returns></returns>
+		/// <returns>Arabic Numeral</returns>
 		public static int ToArab(string romanValue)
 		{
 			int arabSum = 0;
@@ -66,7 +66,7 @@ namespace RomanConverter
 		/// If an error occurs or the number is invalid returns a value of 0
 		/// </summary>
 		/// <param name="arabicValue"></param>
-		/// <returns></returns>
+		/// <returns>Roman numeral</returns>
 		public static string ToRoman(int arabicValue)
 		{
 			if (arabicValue < 1 || arabicValue > 3999)
