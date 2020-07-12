@@ -1,0 +1,23 @@
+name:  Publish to Nuget
+
+on:
+  release:
+    types: [published]
+    
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore /property:Version=${{ github.event.release.tag_name}}
+    - name: Publish NuGet
+      run: dotnet nuget push /home/runner/work/kata-roman-numerals/kata-roman-numerals/RomanConverter/bin/Release/*.nupkg -k oy2el372owj33fje5cpabuqj7o2akp5enm6pfm32c5r6z4 -s https://api.nuget.org/v3/index.json --no-symbols true
