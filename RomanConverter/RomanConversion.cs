@@ -25,6 +25,8 @@ namespace RomanConverter
 		public static int ToArab(string romanValue)
 		{
 			int arabSum = 0;
+			
+			char[] romanChar = romanValue.ToCharArray();
 
 			for (int i = 0; i < romanValue.Length; i++)
 			{
